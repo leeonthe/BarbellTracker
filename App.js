@@ -11,7 +11,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Intro">
-        <Stack.Screen name="Intro" component={IntroPage} />
+        <Stack.Screen name="How to use" component={IntroPage} />
         <Stack.Screen name="Camera" component={CameraPage} />
         <Stack.Screen name="Export" component={ExportPage} />
       </Stack.Navigator>

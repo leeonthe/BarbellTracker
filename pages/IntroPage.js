@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { AntDesign } from '@expo/vector-icons'; 
 
 export default function IntroPage({ navigation }) {
   const [showInstructions, setShowInstructions] = useState(false);
@@ -11,11 +12,12 @@ export default function IntroPage({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to BarbellTracker!</Text>
-      <Button
-        title={showInstructions ? "Hide Instructions" : "View Instructions"}
-        onPress={handleToggleInstructions}
-        color="#1E90FF"
-      />
+      <TouchableOpacity style={styles.button} onPress={handleToggleInstructions}>
+        <AntDesign name="book" size={24} color="white" />
+        <Text style={styles.buttonText}>
+          {showInstructions ? "Hide Instructions" : "View Instructions"}
+        </Text>
+      </TouchableOpacity>
       {showInstructions && (
         <View style={styles.instructionsBox}>
           <Text style={styles.instructions}>How to Use:</Text>
@@ -26,11 +28,10 @@ export default function IntroPage({ navigation }) {
           <Text style={styles.instructions}>5. Then choose an exportable format for the video with insights!</Text>
         </View>
       )}
-      <Button
-        title="Go to Camera"
-        onPress={() => navigation.navigate('Camera')}
-        color="#20B2AA"
-      />
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Camera')}>
+        <AntDesign name="camera" size={24} color="white" />
+        <Text style={styles.buttonText}>Go to Camera</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -38,15 +39,38 @@ export default function IntroPage({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     backgroundColor: '#f0f0f0',
     padding: 20,
   },
   title: {
+    marginTop: 20, 
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 10,
+    alignSelf: 'center',
+    marginBottom: 130, // margin for title to button
+  },
+  button: {
+    flexDirection: 'row',
+    backgroundColor: '#1E90FF',
+    padding: 10,
+    borderRadius: 5,
+    marginBottom: 20, // margin for button to button
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  buttonText: {
+    color: 'white',
+    marginLeft: 10,
   },
   instructionsBox: {
     marginBottom: 20,
