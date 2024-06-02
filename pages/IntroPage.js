@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { AntDesign } from '@expo/vector-icons'; 
+import { AntDesign } from '@expo/vector-icons';
 
 export default function IntroPage({ navigation }) {
   const [showInstructions, setShowInstructions] = useState(false);
@@ -13,7 +13,7 @@ export default function IntroPage({ navigation }) {
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to BarbellTracker!</Text>
       <TouchableOpacity style={styles.button} onPress={handleToggleInstructions}>
-        <AntDesign name="book" size={24} color="white" />
+        <AntDesign name={showInstructions ? "down" : "right"} size={24} color="white" />
         <Text style={styles.buttonText}>
           {showInstructions ? "Hide Instructions" : "View Instructions"}
         </Text>
@@ -49,14 +49,14 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     alignSelf: 'center',
-    marginBottom: 130, // margin for title to button
+    marginBottom: 130,
   },
   button: {
     flexDirection: 'row',
     backgroundColor: '#1E90FF',
     padding: 10,
     borderRadius: 5,
-    marginBottom: 20, // margin for button to button
+    marginBottom: 20,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
