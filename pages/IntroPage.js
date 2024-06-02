@@ -47,7 +47,7 @@ export default function IntroPage({ navigation }) {
   return (
     <ScrollView style={styles.container}>
     <View style={styles.logoContainer}>
-      <Image source={require('../assets/logo.png')} style={styles.logo} />
+      <Image source={require('../assets/updatelogo.png')} style={styles.logo} />
       <View style={styles.overlay}></View>
     </View>
       <Text style={styles.title}>Welcome to BarbellTracker!</Text>
