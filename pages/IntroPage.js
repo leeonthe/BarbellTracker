@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Image} from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
 export default function IntroPage({ navigation }) {
@@ -46,6 +46,10 @@ export default function IntroPage({ navigation }) {
 
   return (
     <ScrollView style={styles.container}>
+    <View style={styles.logoContainer}>
+      <Image source={require('../assets/logo.png')} style={styles.logo} />
+      <View style={styles.overlay}></View>
+    </View>
       <Text style={styles.title}>Welcome to BarbellTracker!</Text>
       <TouchableOpacity style={styles.button} onPress={handleToggleInstructions}>
         <AntDesign name={showInstructions ? "down" : "right"} size={24} color="white" />
@@ -89,6 +93,19 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
+  },
+  logoContainer: {
+    width: 100,
+    height: 100,
+    alignSelf: 'center',
+    marginTop: 10,
+    marginBottom: 10,
+    position: 'relative',
+  },
+  logo: {
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
   },
   title: {
     marginTop: 20, 
