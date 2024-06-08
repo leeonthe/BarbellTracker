@@ -1,9 +1,24 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { ScrollView, Image, TouchableOpacity } from 'react-native';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 
 export default function IntroPage({ navigation }) {
- return (
+  const [showInstructions, setShowInstructions] = useState(false);
+  const [faqData, setFaqData] = useState([]);  // You need to set initial FAQ data here
+  const [activeSections, setActiveSections] = useState([]);
+
+  const handleToggleInstructions = () => {
+    setShowInstructions(!showInstructions);
+  };
+
+  const toggleExpand = (index) => {
+    setActiveSections(prevSections => 
+      prevSections.includes(index) 
+      ? prevSections.filter(s => s !== index)
+      : [...prevSections, index]
+    );
+  }; return (
    <ScrollView style={styles.container}>
    <View style={styles.logoContainer}>
      <Image source={require('../assets/updatelogo.png')} style={styles.logo} />
