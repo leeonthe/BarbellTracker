@@ -31,7 +31,7 @@ export default function EditVideoPage({ route }) {
   useEffect(() => {
     const handleResize = () => {
       const canvas = canvasRef.current;
-    //here
+    //here second
       if (canvas) {
         canvas.width = width;
         canvas.height = height;
