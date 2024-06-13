@@ -27,10 +27,11 @@ export default function EditVideoPage({ route }) {
   const [currentFrame, setCurrentFrame] = useState(0);
   const [showBestFit, setShowBestFit] = useState(false);
   const [bestFitInfo, setBestFitInfo] = useState({ slope: 0, intercept: 0 });
-
+//
   useEffect(() => {
     const handleResize = () => {
       const canvas = canvasRef.current;
+    //here
       if (canvas) {
         canvas.width = width;
         canvas.height = height;
