@@ -99,7 +99,7 @@ export default function EditVideoPage({ route }) {
           ctx.lineTo(motionPath[index - 1].x, motionPath[index - 1].y);
           ctx.lineTo(point.x, point.y);
         }
-        ctx.fillText(point.id.toString(), point.x + 5, point.y + 5);
+        
       });
       ctx.stroke();
       if (showBestFit) {
